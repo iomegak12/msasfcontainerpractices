@@ -1,0 +1,1 @@
+C:\Containerization\Demonstratios\ASFContainerHostingSolution\ASFContainerHostingApp\obj\x64\Debug\ASFContainerHostingApp.sfproj.CoreCompileInputs.cache

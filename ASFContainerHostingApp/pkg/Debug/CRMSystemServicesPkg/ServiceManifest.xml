@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceManifest Name="CRMSystemServicesPkg"
+                 Version="1.0.0"
+                 xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ServiceTypes>
+    <StatelessServiceType ServiceTypeName="CRMSystemServicesType" UseImplicitHost="true" />
+  </ServiceTypes>
+
+  <CodePackage Name="Code" Version="1.0.0">
+    <EntryPoint>
+      <ContainerHost>
+        <ImageName>iomegacontainerregistry.azurecr.io/msprofessionalnetcoreservicesv2</ImageName>
+      </ContainerHost>
+    </EntryPoint>
+
+    <EnvironmentVariables>
+      <EnvironmentVariable Name="ASPNETCORE_URLS" Value="http://*:8080"/>
+      <EnvironmentVariable Name="CRMSystemDBConnectionString" Value="ZGF0YSBzb3VyY2U9aW9tZWdhc3Fsc2VydmVydjIuZGF0YWJhc2Uud2luZG93cy5uZXQ7aW5pdGlhbCBjYXRhbG9nPWlvbWVnYXNxbGRhdGFiYXNldjI7dXNlciBpZD1pb21lZ2FhZG1pbjtwYXNzd29yZD1QcmVzdGlnZTEyMzs="/>
+    </EnvironmentVariables>
+  </CodePackage>
+
+  <ConfigPackage Name="Config" Version="1.0.0" />
+
+  <Resources>
+    <Endpoints>
+      <Endpoint Name="CRMSystemServicesTypeEndpoint" Port="8080" Protocol="http" UriScheme="http" Type="Input" />
+    </Endpoints>
+  </Resources>
+</ServiceManifest>
